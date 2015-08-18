@@ -2,12 +2,6 @@ require('spec_helper')
 
 describe(Animal) do
 
-  describe('.all') do
-    it('starts off with no animals') do
-      expect(Animal.all).to(eq([]))
-    end
-  end
-
   describe('#==') do
     it("is the same animal if it has the same id") do
       animal1 = Animal.new({:name => 'Fluffy', :gender => 'boy', :date_of_admittance => '2015-6-05', :age => 1, :species => 'dog', :breed => 'aussie shepherd', :id => nil})
