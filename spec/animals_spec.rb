@@ -7,4 +7,12 @@ describe(Animal) do
       expect(Animal.all).to(eq([]))
     end
   end
+
+  describe('#==') do
+    it("is the same animal if it has the same id") do
+      animal1 = Animal.new({:name => 'Fluffy', :gender => 'boy', :date_of_admittance => '2015-6-05', :age => 1, :species => 'dog', :breed => 'aussie shepherd', :id => nil})
+      animal2 = Animal.new({:name => 'Fluffy', :gender => 'boy', :date_of_admittance => '2015-6-05', :age => 1, :species => 'dog', :breed => 'aussie shepherd', :id => nil})
+      expect(animal1).to(eq(animal2))
+    end
+  end
 end
