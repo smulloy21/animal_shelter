@@ -35,4 +35,12 @@ class Animal
     result = DB.exec("INSERT INTO animals (name, gender, date_of_admittance, age, species, breed) VALUES ('#{@name}', '#{@gender}', '#{@date_of_admittance}', #{@age}, '#{@species}', '#{@breed}') RETURNING id;")
     @id = result.first().fetch('id').to_i()
   end
+
+  define_singleton_method(:find) do |id|
+    Animal.all().each() do |animal|
+      if animal.id() == id
+        return animal
+      end
+    end
+  end
 end
