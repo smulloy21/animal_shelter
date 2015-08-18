@@ -28,6 +28,11 @@ class Animal
   end
 
   define_method(:==) do |other|
-    self.id().eql?(other.id()) 
+    self.id().eql?(other.id())
+  end
+
+  define_method(:save) do
+    result = DB.exec("INSERT INTO animals (name, gender, date_of_admittance, age, species, breed) VALUES ('#{@name}', '#{@gender}', '#{@date_of_admittance}', #{@age}, '#{@species}', '#{@breed}') RETURNING id;")
+    @id = result.first().fetch('id').to_i()
   end
 end
