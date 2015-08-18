@@ -1,0 +1,26 @@
+<h1>All Adoption Applicants</h1>
+
+<ul>
+  <% @pet_owners.each() do |owner| %>
+  <li><%= owner.name %>, <%= owner.animal_breed_preference %></li>
+  <% end %>
+</ul>
+
+Add an applicant:
+<form action="/applicant/new" method="post">
+  <label for="name">Name:</label>
+  <input type="text" name="name" id="name"><br>
+
+  <label for="phone">Phone Number:</label>
+  <input type="text" name="phone" id="phone"><br>
+
+  <label for="animal_breed_preference">Breed Preference:</label>
+  <input type="text" name="animal_breed_preference" id="animal_breed_preference"><br>
+
+  <label for="animal_species_preference">Species Preference:</label>
+  <input type="text" name="animal_species_preference" id="animal_species_preference"><br>
+
+  <button type="submit">Add Applicant</button>
+</form>
+
+<a href="/">Home</a>
