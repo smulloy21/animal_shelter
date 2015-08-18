@@ -44,14 +44,6 @@ class Animal
     end
   end
 
-  define_singleton_method(:all_by_breed) do
-    Animal.all().sort_by(&:breed)
-  end
-
-  define_singleton_method(:all_by_age) do
-    Animal.all().sort_by(&:age)
-  end
-
   define_singleton_method(:dogs) do
     dogs = []
     Animal.all().each() do |pet|
@@ -60,5 +52,25 @@ class Animal
       end
     end
     dogs
+  end
+
+  define_singleton_method(:cats) do
+    cats = []
+    Animal.all().each() do |pet|
+      if pet.species == 'cat'
+        cats.push(pet)
+      end
+    end
+    cats
+  end
+
+  define_singleton_method(:other_pets) do
+    other_pets = []
+    Animal.all().each() do |pet|
+      if pet.species != 'dog' && pet.species != 'cat'
+        other_pets.push(pet)
+      end
+    end
+    other_pets
   end
 end

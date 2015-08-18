@@ -84,26 +84,6 @@ describe(Animal) do
     end
   end
 
-  describe('.all_by_breed') do
-    it('returns all animals sorted by breed') do
-      test_animal = Animal.new({:name => 'Polly', :gender => 'girl', :date_of_admittance => '2015-6-05', :age => 2, :species => 'bird', :breed => 'parrot', :id => nil})
-      test_animal.save()
-      test_animal2 = Animal.new({:name => 'Gandie', :gender => 'girl', :date_of_admittance => '2015-6-05', :age => 2, :species => 'bird', :breed => 'parakeet', :id => nil})
-      test_animal2.save()
-      expect(Animal.all_by_breed()).to(eq([test_animal2, test_animal]))
-    end
-  end
-
-  describe('.all_by_age') do
-    it('returns all animals sorted by age') do
-      test_animal = Animal.new({:name => 'Sam', :gender => 'girl', :date_of_admittance => '2015-6-05', :age => 1, :species => 'dog', :breed => 'boxer', :id => nil})
-      test_animal.save()
-      test_animal2 = Animal.new({:name => 'Max', :gender => 'boy', :date_of_admittance => '2015-6-05', :age => 2, :species => 'dog', :breed => 'retriever', :id => nil})
-      test_animal2.save()
-      expect(Animal.all_by_age()).to(eq([test_animal, test_animal2]))
-    end
-  end
-
   describe('.dogs') do
     it('returns only the dogs from the database') do
       test_animal = Animal.new({:name => 'Sam', :gender => 'girl', :date_of_admittance => '2015-6-05', :age => 1, :species => 'dog', :breed => 'boxer', :id => nil})
@@ -115,6 +95,34 @@ describe(Animal) do
       test_animal4 = Animal.new({:name => 'Gandie', :gender => 'girl', :date_of_admittance => '2015-6-05', :age => 2, :species => 'bird', :breed => 'parakeet', :id => nil})
       test_animal4.save()
       expect(Animal.dogs()).to(eq([test_animal, test_animal2]))
+    end
+  end
+
+  describe('.cats') do
+    it('returns only the cats from the database') do
+      test_animal = Animal.new({:name => 'Sam', :gender => 'girl', :date_of_admittance => '2015-6-05', :age => 1, :species => 'cat', :breed => 'boxer', :id => nil})
+      test_animal.save()
+      test_animal2 = Animal.new({:name => 'Max', :gender => 'boy', :date_of_admittance => '2015-6-05', :age => 2, :species => 'cat', :breed => 'retriever', :id => nil})
+      test_animal2.save()
+      test_animal3 = Animal.new({:name => 'Polly', :gender => 'girl', :date_of_admittance => '2015-6-05', :age => 2, :species => 'bird', :breed => 'parrot', :id => nil})
+      test_animal3.save()
+      test_animal4 = Animal.new({:name => 'Gandie', :gender => 'girl', :date_of_admittance => '2015-6-05', :age => 2, :species => 'bird', :breed => 'parakeet', :id => nil})
+      test_animal4.save()
+      expect(Animal.cats()).to(eq([test_animal, test_animal2]))
+    end
+  end
+
+  describe('.other_pets') do
+    it('returns the other animals from the database') do
+      test_animal = Animal.new({:name => 'Sam', :gender => 'girl', :date_of_admittance => '2015-6-05', :age => 1, :species => 'dog', :breed => 'boxer', :id => nil})
+      test_animal.save()
+      test_animal2 = Animal.new({:name => 'Max', :gender => 'boy', :date_of_admittance => '2015-6-05', :age => 2, :species => 'dog', :breed => 'retriever', :id => nil})
+      test_animal2.save()
+      test_animal3 = Animal.new({:name => 'Polly', :gender => 'girl', :date_of_admittance => '2015-6-05', :age => 2, :species => 'bird', :breed => 'parrot', :id => nil})
+      test_animal3.save()
+      test_animal4 = Animal.new({:name => 'Gandie', :gender => 'girl', :date_of_admittance => '2015-6-05', :age => 2, :species => 'bird', :breed => 'parakeet', :id => nil})
+      test_animal4.save()
+      expect(Animal.other_pets()).to(eq([test_animal3, test_animal4]))
     end
   end
 end
