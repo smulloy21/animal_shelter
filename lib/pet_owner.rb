@@ -23,4 +23,13 @@ class PetOwner
     end
     pet_owner
   end
+
+  define_method(:==) do |other|
+    self.id() == other.id()
+  end
+
+  define_method(:save) do
+    result = DB.exec("INSERT INTO pet_owner (name, phone, animal_species_preference, animal_breed_preference) VALUES ('#{@name}', #{@phone}, '#{@animal_species_preference}', '#{@animal_breed_preference}') RETURNING id;")
+    @id = result.first().fetch('id').to_i()
+  end
 end
