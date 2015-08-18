@@ -33,4 +33,54 @@ describe(Animal) do
       expect(Animal.find(test_animal2.id())).to(eq(test_animal2))
     end
   end
+
+  describe('#name') do
+    it('returns the name of an animal') do
+      test_animal = Animal.new({:name => 'Gandie', :gender => 'girl', :date_of_admittance => '2015-6-05', :age => 2, :species => 'bird', :breed => 'parakeet', :id => nil})
+      expect(test_animal.name()).to(eq('Gandie'))
+    end
+  end
+
+  describe('#gender') do
+    it('returns the gender of an animal') do
+      test_animal = Animal.new({:name => 'Gandie', :gender => 'girl', :date_of_admittance => '2015-6-05', :age => 2, :species => 'bird', :breed => 'parakeet', :id => nil})
+      expect(test_animal.gender()).to(eq('girl'))
+    end
+  end
+
+  describe('#date_of_admittance') do
+    it('returns the date_of_admittance of an animal') do
+      test_animal = Animal.new({:name => 'Gandie', :gender => 'girl', :date_of_admittance => '2015-6-05', :age => 2, :species => 'bird', :breed => 'parakeet', :id => nil})
+      expect(test_animal.date_of_admittance()).to(eq('2015-6-05'))
+    end
+  end
+
+  describe('#age') do
+    it('returns the age of an animal') do
+      test_animal = Animal.new({:name => 'Gandie', :gender => 'girl', :date_of_admittance => '2015-6-05', :age => 2, :species => 'bird', :breed => 'parakeet', :id => nil})
+      expect(test_animal.age()).to(eq(2))
+    end
+  end
+
+  describe('#species') do
+    it('returns the species of an animal') do
+      test_animal = Animal.new({:name => 'Gandie', :gender => 'girl', :date_of_admittance => '2015-6-05', :age => 2, :species => 'bird', :breed => 'parakeet', :id => nil})
+      expect(test_animal.species()).to(eq('bird'))
+    end
+  end
+
+  describe('#breed') do
+    it('returns the breed of an animal') do
+      test_animal = Animal.new({:name => 'Gandie', :gender => 'girl', :date_of_admittance => '2015-6-05', :age => 2, :species => 'bird', :breed => 'parakeet', :id => nil})
+      expect(test_animal.breed()).to(eq('parakeet'))
+    end
+  end
+
+  describe('#id') do
+    it('returns the id of an animal') do
+      test_animal = Animal.new({:name => 'Gandie', :gender => 'girl', :date_of_admittance => '2015-6-05', :age => 2, :species => 'bird', :breed => 'parakeet', :id => nil})
+      test_animal.save()
+      expect(test_animal.id()).to(be_an_instance_of(Fixnum))
+    end
+  end
 end
