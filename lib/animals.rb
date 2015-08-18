@@ -43,4 +43,13 @@ class Animal
       end
     end
   end
+
+  define_singleton_method(:all_by_breed) do
+    Animal.all().sort_by(&:breed)
+  end
+
+  define_singleton_method(:all_by_age) do
+    Animal.all().sort_by(&:age)
+  end
+
 end

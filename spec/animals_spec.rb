@@ -83,4 +83,24 @@ describe(Animal) do
       expect(test_animal.id()).to(be_an_instance_of(Fixnum))
     end
   end
+
+  describe('.all_by_breed') do
+    it('returns all animals sorted by breed') do
+      test_animal = Animal.new({:name => 'Polly', :gender => 'girl', :date_of_admittance => '2015-6-05', :age => 2, :species => 'bird', :breed => 'parrot', :id => nil})
+      test_animal.save()
+      test_animal2 = Animal.new({:name => 'Gandie', :gender => 'girl', :date_of_admittance => '2015-6-05', :age => 2, :species => 'bird', :breed => 'parakeet', :id => nil})
+      test_animal2.save()
+      expect(Animal.all_by_breed()).to(eq([test_animal2, test_animal]))
+    end
+  end
+
+  describe('.all_by_age') do
+    it('returns all animals sorted by age') do
+      test_animal = Animal.new({:name => 'Sam', :gender => 'girl', :date_of_admittance => '2015-6-05', :age => 1, :species => 'dog', :breed => 'boxer', :id => nil})
+      test_animal.save()
+      test_animal2 = Animal.new({:name => 'Max', :gender => 'boy', :date_of_admittance => '2015-6-05', :age => 2, :species => 'dog', :breed => 'retriever', :id => nil})
+      test_animal2.save()
+      expect(Animal.all_by_age()).to(eq([test_animal, test_animal2]))
+    end
+  end
 end
