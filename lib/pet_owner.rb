@@ -32,4 +32,12 @@ class PetOwner
     result = DB.exec("INSERT INTO pet_owner (name, phone, animal_species_preference, animal_breed_preference) VALUES ('#{@name}', #{@phone}, '#{@animal_species_preference}', '#{@animal_breed_preference}') RETURNING id;")
     @id = result.first().fetch('id').to_i()
   end
+
+  define_singleton_method(:find) do |id|
+    PetOwner.all.each() do |owner|
+      if owner.id() == id
+        return owner
+      end
+    end
+  end
 end

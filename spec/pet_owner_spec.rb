@@ -23,4 +23,15 @@ describe(PetOwner) do
       expect(PetOwner.all()).to(eq([test1]))
     end
   end
+
+  describe(".find") do
+    it('will find a pet owner by his/her id') do
+      test1 = PetOwner.new({:name => 'Steve', :phone => 555-5555, :animal_species_preference => 'dog', :animal_breed_preference => 'golden retriever', :id => nil})
+      test1.save()
+      test2 = PetOwner.new({:name => 'Martha', :phone => 666-6666, :animal_species_preference => 'cat', :animal_breed_preference => 'siamese', :id => nil})
+      test2.save()
+      expect(PetOwner.find(test2.id())).to(eq(test2))
+
+    end
+  end
 end
