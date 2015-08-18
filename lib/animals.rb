@@ -52,4 +52,13 @@ class Animal
     Animal.all().sort_by(&:age)
   end
 
+  define_singleton_method(:dogs) do
+    dogs = []
+    Animal.all().each() do |pet|
+      if pet.species == 'dog'
+        dogs.push(pet)
+      end
+    end
+    dogs
+  end
 end

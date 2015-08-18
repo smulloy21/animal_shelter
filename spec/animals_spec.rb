@@ -103,4 +103,18 @@ describe(Animal) do
       expect(Animal.all_by_age()).to(eq([test_animal, test_animal2]))
     end
   end
+
+  describe('.dogs') do
+    it('returns only the dogs from the database') do
+      test_animal = Animal.new({:name => 'Sam', :gender => 'girl', :date_of_admittance => '2015-6-05', :age => 1, :species => 'dog', :breed => 'boxer', :id => nil})
+      test_animal.save()
+      test_animal2 = Animal.new({:name => 'Max', :gender => 'boy', :date_of_admittance => '2015-6-05', :age => 2, :species => 'dog', :breed => 'retriever', :id => nil})
+      test_animal2.save()
+      test_animal3 = Animal.new({:name => 'Polly', :gender => 'girl', :date_of_admittance => '2015-6-05', :age => 2, :species => 'bird', :breed => 'parrot', :id => nil})
+      test_animal3.save()
+      test_animal4 = Animal.new({:name => 'Gandie', :gender => 'girl', :date_of_admittance => '2015-6-05', :age => 2, :species => 'bird', :breed => 'parakeet', :id => nil})
+      test_animal4.save()
+      expect(Animal.dogs()).to(eq([test_animal, test_animal2]))
+    end
+  end
 end
