@@ -1,13 +1,13 @@
 class PetOwner
-  attr_reader(:name, :phone, :animal_species_preference, :animal_breed_preference, :id)
+  attr_reader(:name, :phone, :animal_species_preference, :animal_breed_preference, :id, :animal_id)
 
   define_method(:initialize) do |attributes|
-  @name = attributes.fetch(:name)
-  @phone = attributes.fetch(:phone)
-  @animal_species_preference = attributes.fetch(:animal_species_preference)
-  @animal_breed_preference = attributes.fetch(:animal_breed_preference)
-  @id = attributes.fetch(:id)
-
+    @name = attributes.fetch(:name)
+    @phone = attributes.fetch(:phone)
+    @animal_species_preference = attributes.fetch(:animal_species_preference)
+    @animal_breed_preference = attributes.fetch(:animal_breed_preference)
+    @id = attributes.fetch(:id)
+    @animal_id = attributes.fetch(:animal_id, nil)
   end
 
   define_singleton_method(:all) do
