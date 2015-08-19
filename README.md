@@ -16,7 +16,7 @@ Potential adopters can view types of animals by breed, age and gender. Shelter w
 
 ## Technologies Used
 
-Ruby
+_Ruby, Sinatra_
 
 ### Legal
 
