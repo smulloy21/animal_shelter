@@ -1,5 +1,5 @@
 class Animal
-  attr_reader(:name, :gender, :date_of_admittance, :age, :species, :breed, :id)
+  attr_reader(:name, :gender, :date_of_admittance, :age, :species, :breed, :id, :owner_id)
 
   define_method(:initialize) do |attributes|
     @name = attributes.fetch(:name)
@@ -8,7 +8,8 @@ class Animal
     @age = attributes.fetch(:age)
     @species = attributes.fetch(:species)
     @breed = attributes.fetch(:breed)
-    @id = attributes.fetch(:id)
+    @id = attributes.fetch(:id, nil)
+    @owner_id = attributes.fetch(:owner_id, nil)
   end
 
   define_singleton_method(:all) do
